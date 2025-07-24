@@ -31,6 +31,7 @@ int main() {
                 break;
             case 4: 
                 printf("\nListing all books...\n"); 
+                list_books(books);
                 sleep(1);
                 break;
             case 5: 
@@ -60,17 +61,17 @@ int main() {
 
 void main_menu() {
     printf("\n\n");
-    printf("----------------------------------------");
-    printf("LIBRARY MANAGEMENT SYSTEM");
-    printf("----------------------------------------");
-    printf("1. Add Book");
-    printf("2. Remove Book");
-    printf("3. Search Book");
-    printf("4. List Books");
-    printf("5. Issue Book");
-    printf("6. Return Book");
-    printf("7. List Issued Books");
-    printf("0. Exit");
-    printf("----------------------------------------");
+    printf("\t\t\t----------------------------------------\n");
+    printf("\t\t\t\tLIBRARY MANAGEMENT SYSTEM\n");
+    printf("\t\t\t----------------------------------------\n");
+    printf("\t\t\t\t1. Add Book\n");
+    printf("\t\t\t\t2. Remove Book\n");
+    printf("\t\t\t\t3. Search Book\n");
+    printf("\t\t\t\t4. List Books\n");
+    printf("\t\t\t\t5. Issue Book\n");
+    printf("\t\t\t\t6. Return Book\n");
+    printf("\t\t\t\t7. List Issued Books\n");
+    printf("\t\t\t\t0. Exit\n");
+    printf("\t\t\t----------------------------------------\n");
     printf("\n\t\t\tEnter your choice: ");
 }

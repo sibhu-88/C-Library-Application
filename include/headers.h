@@ -14,10 +14,12 @@ typedef struct Book{
     struct Book *next;
 } Book;
 
+void main_menu();
+
 void add_book(Book **books);
 void remove_book(int id);
 void search_book(const char *title);
-void list_books();
+void list_books(Book *books);
 void save_library();
 void load_library();
 
