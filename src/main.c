@@ -22,17 +22,17 @@ int main() {
                 sleep(1);
                 break;
             case 2: 
-                printf("\nRemoving a book...\n"); 
+                printf("\nRemoving a book...\n");
+                remove_book(&books);
                 sleep(1);
                 break;
             case 3: 
                 printf("\nSearching for a book...\n"); 
-                sleep(1);
+                search_book(books);
                 break;
             case 4: 
                 printf("\nListing all books...\n"); 
                 list_books(books);
-                sleep(1);
                 break;
             case 5: 
                 printf("\nIssuing a book...\n"); 
@@ -44,6 +44,10 @@ int main() {
                 break;
             case 7: 
                 printf("\nListing issued books...\n"); 
+                sleep(1);
+                break;
+            case 8: 
+                printf("\nSaving books...\n"); 
                 sleep(1);
                 break;
             case 0: 
@@ -71,7 +75,28 @@ void main_menu() {
     printf("\t\t\t\t5. Issue Book\n");
     printf("\t\t\t\t6. Return Book\n");
     printf("\t\t\t\t7. List Issued Books\n");
+    printf("\t\t\t\t8. Save Books\n");
     printf("\t\t\t\t0. Exit\n");
     printf("\t\t\t----------------------------------------\n");
     printf("\n\t\t\tEnter your choice: ");
+}
+
+void display_book_search_menu() {
+    printf("\n\n\t\t\tBOOK SEARCH MENU\n");
+    printf("\t+-------------------------------------+\n");
+    printf("\t| 1. Search by Book ID                |\n");
+    printf("\t| 2. Search by Book Title             |\n");
+    printf("\t| 0. Return to Main Menu              |\n");
+    printf("\t+-------------------------------------+\n");
+    printf("\tEnter your choice: ");
+}
+
+void display_search_book_menu() {
+    printf("\n\n\t\t\tBOOK SEARCH MENU\n");
+    printf("\t+-------------------------------------+\n");
+    printf("\t| 1. Search by Book Title             |\n");
+    printf("\t| 2. Search by Book Author            |\n");
+    printf("\t| 0. Return to Main Menu              |\n");
+    printf("\t+-------------------------------------+\n");
+    printf("\tEnter your choice: ");
 }

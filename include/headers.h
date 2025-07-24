@@ -14,13 +14,27 @@ typedef struct Book{
     struct Book *next;
 } Book;
 
+typedef struct IssuedBook {
+    Book *book;               
+    int book_id;              
+    char borrower_name[100];  
+    char issue_date[20];    
+    char return_date[20];    
+    struct IssuedBook *next; 
+} IssuedBook;
+
 void main_menu();
+void display_book_search_menu();
+void display_search_book_menu();
 
 void add_book(Book **books);
-void remove_book(int id);
-void search_book(const char *title);
+void remove_book(Book **books);
+void search_book(Book *books);
 void list_books(Book *books);
-void save_library();
-void load_library();
+void save_library(Book *books);
+
+void issue_book(Book *books, IssuedBook **issued_books);\
+void return_book(Book *books, IssuedBook **issued_books);
+void list_issued_books(IssuedBook *issued_books);
 
 #endif // LIBRARY_H
