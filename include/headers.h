@@ -31,10 +31,12 @@ void add_book(Book **books);
 void remove_book(Book **books);
 void search_book(Book *books);
 void list_books(Book *books);
-void save_library(Book *books);
+void save_books(Book *books);
+void read_books(Book **books);
 
-void issue_book(Book *books, IssuedBook **issued_books);\
+void issue_book(Book *books, IssuedBook **issued_books);
 void return_book(Book *books, IssuedBook **issued_books);
 void list_issued_books(IssuedBook *issued_books);
+void save_issued_books_details(IssuedBook *issued_books);
 
 #endif // LIBRARY_H

@@ -1,10 +1,12 @@
 #include"headers.h"
 
 Book *books=NULL;
+IssuedBook *issuBook = NULL;
 
 int main() {
     int choice;
 
+    read_books(&books);
     do {
         system("clear");
         main_menu();
@@ -35,19 +37,28 @@ int main() {
                 list_books(books);
                 break;
             case 5: 
-                printf("\nIssuing a book...\n"); 
+                printf("\nSaving books...\n"); 
+                save_books(books);
                 sleep(1);
                 break;
             case 6: 
-                printf("\nReturning a book...\n"); 
+                printf("\nIssuing a book...\n"); 
+
                 sleep(1);
                 break;
             case 7: 
-                printf("\nListing issued books...\n"); 
+                printf("\nReturning a book...\n"); 
+
                 sleep(1);
                 break;
             case 8: 
-                printf("\nSaving books...\n"); 
+                printf("\nListing issued books...\n"); 
+
+                sleep(1);
+                break;
+            case 9: 
+                printf("\nSaving book Issued Details...\n"); 
+                save_issued_books_details(issuBook);
                 sleep(1);
                 break;
             case 0: 
@@ -72,10 +83,11 @@ void main_menu() {
     printf("\t\t\t\t2. Remove Book\n");
     printf("\t\t\t\t3. Search Book\n");
     printf("\t\t\t\t4. List Books\n");
-    printf("\t\t\t\t5. Issue Book\n");
-    printf("\t\t\t\t6. Return Book\n");
-    printf("\t\t\t\t7. List Issued Books\n");
-    printf("\t\t\t\t8. Save Books\n");
+    printf("\t\t\t\t5. Save Books\n");
+    printf("\t\t\t\t6. Issue Book\n");
+    printf("\t\t\t\t7. Return Book\n");
+    printf("\t\t\t\t8. List Issued Books\n");
+    printf("\t\t\t\t9. Save Issued Books Details\n");
     printf("\t\t\t\t0. Exit\n");
     printf("\t\t\t----------------------------------------\n");
     printf("\n\t\t\tEnter your choice: ");
