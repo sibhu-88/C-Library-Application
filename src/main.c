@@ -43,18 +43,17 @@ int main() {
                 break;
             case 6: 
                 printf("\nIssuing a book...\n"); 
-
+                issue_book(books,&issuBook);
                 sleep(1);
                 break;
             case 7: 
                 printf("\nReturning a book...\n"); 
-
+                return_book(&issuBook);
                 sleep(1);
                 break;
             case 8: 
                 printf("\nListing issued books...\n"); 
-
-                sleep(1);
+                list_issued_books(issuBook);
                 break;
             case 9: 
                 printf("\nSaving book Issued Details...\n"); 
@@ -62,7 +61,9 @@ int main() {
                 sleep(1);
                 break;
             case 0: 
-                printf("\nExiting the program...\n"); 
+                printf("\nExiting the program...\n");
+                save_books(books);
+                save_issued_books_details(issuBook);
                 sleep(1);
                 return 0;
             default: 
