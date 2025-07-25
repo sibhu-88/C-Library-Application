@@ -39,5 +39,6 @@ void issue_book(Book *books, IssuedBook **issued_books);
 void return_book(IssuedBook **issued_books);
 void list_issued_books(IssuedBook *issued_books);
 void save_issued_books_details(IssuedBook *issued_books);
+void read_issued_books_details(IssuedBook **IssuedBook);
 
 #endif // LIBRARY_H

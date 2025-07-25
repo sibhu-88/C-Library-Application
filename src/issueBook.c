@@ -94,7 +94,7 @@ void return_book(IssuedBook **issued_books) {
     while (current) {
         if (current->borrower_id == borrowerId &&
             current->book->id == bookId &&
-            strcmp(current->return_date, "NIL") == 0) {  // ✅ corrected here
+            strcmp(current->return_date, "NIL") == 0) {
             
             time_t t = time(NULL);
             struct tm *tm_info = localtime(&t);
@@ -137,6 +137,7 @@ void list_issued_books(IssuedBook *issuedBooks) {
                issuedBooks->borrower_id,
                issuedBooks->issue_date,
                (strlen(issuedBooks->return_date) > 0) ? issuedBooks->return_date : "NIL");
+    printf("\t+------+----------------------+----------------------+---------------+----------------+----------------+\n");
 
         issuedBooks = issuedBooks->next;
     }

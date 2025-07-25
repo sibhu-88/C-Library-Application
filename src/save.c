@@ -91,7 +91,7 @@ void save_issued_books_details(IssuedBook *issued_books) {
     IssuedBook *current = issued_books;
     while (current != NULL) {
         fprintf(file, "%d\t%s\t%s\t%s\t%s\n",
-                current->book_id,
+                current->book->id,
                 current->book->title,
                 current->borrower_name,
                 current->issue_date,
@@ -101,4 +101,45 @@ void save_issued_books_details(IssuedBook *issued_books) {
 
     fclose(file);
     printf("Issued books successfully saved to issuedBooks.xls\n");
+}
+
+void read_issued_books_details(IssuedBook **issued_books) {
+    FILE *file = fopen("issuedBooks.xls", "r");
+    if (file == NULL) {
+        perror("Error opening file");
+        return;
+    }
+
+    char line[256];
+    fgets(line, sizeof(line), file);
+
+    while (fgets(line, sizeof(line), file)) {
+        IssuedBook *new_issued_book = malloc(sizeof(IssuedBook));
+        if (new_issued_book == NULL) {
+            fprintf(stderr, "Memory allocation error\n");
+            fclose(file);
+            return;
+        }
+
+        new_issued_book->book = malloc(sizeof(Book));
+        if (new_issued_book->book == NULL) {
+            fprintf(stderr, "Memory allocation error\n");
+            free(new_issued_book);
+            fclose(file);
+            return;
+        }
+
+        sscanf(line, "%d\t%d\t%[^\t]\t%[^\t]\t%[^\n]",
+               &new_issued_book->book->id,
+               &new_issued_book->borrower_id,
+               new_issued_book->borrower_name,
+               new_issued_book->issue_date,
+               new_issued_book->return_date);
+
+        new_issued_book->next = *issued_books;
+        *issued_books = new_issued_book;
+    }
+
+    fclose(file);
+    printf("Issued books successfully loaded from issuedBooks.xls\n");
 }

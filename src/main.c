@@ -7,6 +7,7 @@ int main() {
     int choice;
 
     read_books(&books);
+    read_issued_books_details(&issuBook);
     do {
         system("clear");
         main_menu();
